@@ -1,0 +1,15 @@
+{
+  "name": "lazy-loaded-angular-app",
+  "version": "0.0.0",
+  "authors": [
+    "Torgeir Helgevold <torgeirh@hotmail.com>"
+  ],
+  "dependencies": {
+    "jquery": "~3.1.1",
+    "underscore": "~1.8.3",
+    "angular": "~1.4.0",
+    "ui-router": "~0.2.15",
+    "ocLazyLoad": "~1.0.1",
+    "requirejs": "~2.1.18"
+  }
+}
