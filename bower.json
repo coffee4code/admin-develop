@@ -1,15 +1,40 @@
 {
-  "name": "lazy-loaded-angular-app",
-  "version": "0.0.0",
+  "name": "Hobbees Admin Project",
+  "version": "1.0.0",
+  "homepage": "https://github.com/smallyin/admin-develop",
   "authors": [
-    "Torgeir Helgevold <torgeirh@hotmail.com>"
+    "YinGang <mr.yingang.hb@gmail.com>"
+  ],
+  "description": "Hobbees Admin Project, with Angular + Requirejs + Sass + Bower + Grunt + Metronic",
+  "main": "main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "Hobbees",
+    "Admin",
+    "Angular",
+    "Requirejs",
+    "Sass",
+    "Bower",
+    "Grunt",
+    "Metronic"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
-    "jquery": "~3.1.1",
-    "underscore": "~1.8.3",
-    "angular": "~1.2.16",
-    "ui-router": "~0.2.18",
-    "ocLazyLoad": "~0.3.0",
-    "requirejs": "~2.1.18"
+    "jquery": "#3.1.1",
+    "underscore": "#1.8.3",
+    "angular": "#1.5.8",
+    "ui-router": "#0.2.18",
+    "ocLazyLoad": "#0.3.10",
+    "requirejs": "#2.3.2"
   }
 }
