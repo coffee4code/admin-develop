@@ -1,0 +1,44 @@
+{
+  "name": "Hobbees Admin Project",
+  "version": "1.0.0",
+  "description": "Hobbees Admin Project, with Angular + Requirejs + Sass + Bower + Grunt + Metronic",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "developer@112.74.211.9:/var/www/git/admin.git"
+  },
+  "keywords": [
+    "Hobbees",
+    "Admin",
+    "Angular",
+    "Requirejs",
+    "Sass",
+    "Bower",
+    "Grunt",
+    "Metronic"
+  ],
+  "author": "YinGang <mr.yingang.hb@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~1.0.1",
+    "grunt-contrib-watch      ":"~1.0.0",
+    "grunt-contrib-copy       ":"~1.0.0",
+    "grunt-sass               ":"~1.1.0",
+    "grunt-contrib-concat     ":"~1.0.0",
+    "grunt-contrib-uglify     ":"~1.0.1",
+    "grunt-contrib-compress   ":"~1.2.0",
+    "grunt-contrib-clean      ":"~1.0.0",
+    "grunt-contrib-jade       ":"~1.0.0",
+    "grunt-concurrent         ":"~2.3.0",
+    "grunt-notify             ":"~0.4.5",
+    "grunt-text-replace       ":"~0.4.0",
+    "grunt-banner             ":"~0.6.0",
+    "grunt-rename             ":"~0.1.4",
+    "grunt-remove-logging     ":"~0.2.0",
+    "grunt-browser-sync       ":"~2.2.0",
+    "grunt-contrib-testem     ":"~0.5.22"
+  }
+}
