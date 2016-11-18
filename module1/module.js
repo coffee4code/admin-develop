@@ -1,4 +1,3 @@
-define(['jquery','underscore','angular','./service','./controller',function($,_,angular){
-    var module= angular.module('app.module1',['module1.controller','module1.service']);
-    return module;
-}]);
+define(['angular','./template','./service','./controller'],function(angular){
+    angular.module('app.module1',['app.module1.template','app.module1.controller','app.module1.service']);
+});

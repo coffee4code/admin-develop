@@ -7,9 +7,9 @@
   "dependencies": {
     "jquery": "~3.1.1",
     "underscore": "~1.8.3",
-    "angular": "~1.4.0",
-    "ui-router": "~0.2.15",
-    "ocLazyLoad": "~1.0.1",
+    "angular": "~1.2.16",
+    "ui-router": "~0.2.18",
+    "ocLazyLoad": "~0.3.0",
     "requirejs": "~2.1.18"
   }
 }

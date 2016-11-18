@@ -1,5 +1,6 @@
-//define(['jquery','underscore','angular','./service','./controller',function($,_,angular){
-    angular.module('module2.controller',[]).controller('module2Controller',function(){
-        this.message = 'Hello from a lazy loaded controller';
+define(['angular'],function(angular){
+    angular.module('app.module2.controller',[])
+        .controller('module2Ctrl',function($scope){
+            $scope.message = 'Hello from a lazy loaded controller';
     });
-//}]);
+});

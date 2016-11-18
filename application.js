@@ -1,6 +1,6 @@
-define(['jquery','underscore','angular','uiRouter','ocLazyLoad'], function ($,_,angular) {
+define(['jquery','underscore','angular','uiRouter','ocLazyLoad','decorator'], function ($,_,angular) {
 
-    var app = angular.module('app', ['ui.router','oc.lazyLoad']);
+    var app = angular.module('app', ['ui.router','oc.lazyLoad','oc.lazyLoad.decotator']);
 
     app.config(['$ocLazyLoadProvider','$stateProvider', '$urlRouterProvider',
         function ($ocLazyLoadProvider,$stateProvider, $urlRouterProvider) {
@@ -27,15 +27,10 @@ define(['jquery','underscore','angular','uiRouter','ocLazyLoad'], function ($,_,
                     url: '/module1',
                     views: {
                         'vw':{
-                            templateUrl: 'module1/module.html',
-                            resolve: {
-                                load: function($ocLazyLoad) {
-                                    return $ocLazyLoad.load ({
-                                        name: 'module1',
-                                        files: ['module1/controller.js','module1/service.js','module1/module.js']
-                                    });
-                                }
-                            }
+                            lazyModule: 'app.module1',
+                            lazyFiles: 'module1/module',
+                            lazyTemplateUrl: 'module1/template.html',
+                            controller: 'module1Controller'
                         }
                     }
                 })
@@ -44,18 +39,25 @@ define(['jquery','underscore','angular','uiRouter','ocLazyLoad'], function ($,_,
                     url: '/module2',
                     views: {
                         'vw': {
-                            templateUrl: 'module2/module.html',
-                            resolve: {
-                                load: function($ocLazyLoad) {
-                                    return $ocLazyLoad.load ({
-                                        name: 'module2',
-                                        files: ['module2/controller.js','module2/directive.js','module2/module.js']
-                                    });
-                                }
-                            }
+                            lazyModule: 'app.module2',
+                            lazyFiles: 'module2/module',
+                            lazyTemplateUrl: 'module2.html',
+                            controller: 'module2Ctrl'
                         }
                     }
-                });
+                })
+                .state('module3', {
+                    url: "/module3",
+                    views: {
+                        'vw': {
+                            lazyModule: 'app.module3',
+                            lazyFiles: 'module3/module',
+                            lazyTemplateUrl: 'module3.html',
+                            controller: 'module3Ctrl'
+                        }
+                    }
+                })
+            ;
         }
     ]);
 

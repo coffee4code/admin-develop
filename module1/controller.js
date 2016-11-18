@@ -1,6 +1,6 @@
-define(['jquery','underscore','angular',function($,_,angular) {
-    var module= angular.module('module1.controller',[]).controller('module1Controller', ['service1', function (service1) {
-        this.message = service1.getMessage();
-    }]);
-    return module;
-}]);
+define(['angular'],function(angular) {
+    angular.module('app.module1.controller',[])
+        .controller('module1Controller', ['$scope', function ($scope) {
+            $scope.message = 'this is message from controller1';
+        }]);
+});

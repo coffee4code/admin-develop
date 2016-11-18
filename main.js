@@ -6,6 +6,7 @@ require.config({
         angular: './bower_components/angular/angular',
         uiRouter: './bower_components/ui-router/release/angular-ui-router',
         ocLazyLoad: './bower_components/ocLazyLoad/dist/ocLazyLoad',
+        decorator: './decorator',
         application:'./application'
     },
     shim: {
