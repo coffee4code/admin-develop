@@ -37,8 +37,8 @@ define(
                             views: {
                                 'vw': {
                                     lazyModule: 'modules.home',
-                                    lazyFiles: 'modules/home/module',
-                                    lazyTemplateUrl: 'modules/home/template.html',
+                                    lazyFiles: 'app/modules/home/module',
+                                    lazyTemplateUrl: 'app/modules/home/template.html',
                                     controller: 'homeCtrl'
                                 }
                             }
@@ -49,8 +49,8 @@ define(
                             views: {
                                 'vw': {
                                     lazyModule: 'modules.module1',
-                                    lazyFiles: 'modules/module1/module',
-                                    lazyTemplateUrl: 'modules/module1/template.html',
+                                    lazyFiles: 'app/modules/module1/module',
+                                    lazyTemplateUrl: 'app/modules/module1/template.html',
                                     controller: 'module1Ctrl'
                                 }
                             }

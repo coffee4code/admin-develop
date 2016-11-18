@@ -11,7 +11,7 @@ define(
     ],
     function (angular) {
 
-        var app = angular.module('app', [
+        var application = angular.module('app', [
             'app.constant',
             'app.config',
             'app.router',
@@ -19,13 +19,16 @@ define(
             'app.filter',
             'app.controller',
             'app.service'
-        ]);
+        ])
+            .run([function(){
+                console.info('run');
+            }]);
 
-        app.bootstrap = function () {
+        application.bootstrap = function () {
             'use strict';
             angular.bootstrap(document, ['app']);
         };
 
-        return app;
+        return application;
     }
 );

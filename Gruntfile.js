@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'css/style.css': 'sass/style.scss'
+                    'app/css/style.css': 'sass/style.scss'
                 }
             },
 
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'css/style.min.css': 'sass/style.scss'
+                    'app/css/style.min.css': 'sass/style.scss'
                 }
             }
         },
