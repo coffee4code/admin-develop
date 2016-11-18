@@ -1,13 +1,14 @@
 require.config({
     baseUrl:'',
     paths: {
-        jquery:'./bower_components/jquery/dist/jquery',
-        underscore:'./bower_components/underscore/underscore',
-        angular: './bower_components/angular/angular',
-        uiRouter: './bower_components/ui-router/release/angular-ui-router',
-        ocLazyLoad: './bower_components/ocLazyLoad/dist/ocLazyLoad',
-        decorator: './decorator',
-        application:'./application'
+        jquery:         './bower_components/jquery/dist/jquery',
+        underscore:     './bower_components/underscore/underscore',
+        angular:        './bower_components/angular/angular',
+        uiRouter:       './bower_components/ui-router/release/angular-ui-router',
+        ocLazyLoad:     './bower_components/ocLazyLoad/dist/ocLazyLoad',
+        decorator:      './js/app.decorator',
+        router:         './js/app.router',
+        app:            './js/app'
     },
     shim: {
         'jquery':{
@@ -34,6 +35,6 @@ require.config({
         }
     }
 });
-require(['application'], function (application) {
-    application.bootstrap();
+require(['app'], function (app) {
+    app.bootstrap();
 });

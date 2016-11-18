@@ -1,8 +1,8 @@
 define(['angular'],function(angular){
     angular.module('app.module2.directive',[])
         .directive('greeting', function(){
-
             return {
+                restrict:'EAC',
                 template:'<div>{{message}}</div>',
 
                 link:function($scope){
