@@ -39,7 +39,13 @@ require.config({
     },
     config: {
         i18n: {
-            locale: 'zh-cn'
+            // language support
+            // [
+            //      ''           // English, default language
+            //      'zh-ch',     // Simplified Chinese
+            //      'zh-hk',     // HK Traditional Chinese
+            // ]
+            locale: ''
         }
     }
 });
