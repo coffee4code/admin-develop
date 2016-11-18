@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html ng-strict-di>
+<html ng-controller="appCtrl" ng-strict-di>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <base href="/"/>
     <link href="icon.ico" rel="icon">
     <link href="xicon.ico" rel="image/x-icon">
-    <base href="/"/>
-    <script data-main="main" src="bower_components/requirejs/require.js"></script>
+    <title>Hobbees Admin</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=0">
+
+    <meta name="fragment" content="!">
+    <meta name="application-name" content="Hobbees Admin">
+    <meta name="keywords" content="Hobbees,Admin">
+    <meta name="description" content="Hobbees,Admin">
+    <meta name="author" content="Hobbees HK">
+    <meta name="subject" content="Hobbees,Admin">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="google" content="nositelinkssearchbox">
+    <meta name="abstract" content="Hobbees Admin">
+    <meta name="topic" content="Hobbees Admin">
+    <meta name="summary" content="Hobbees Admin">
+    <meta name="classification" content="business">
+    <meta name="directory" content="private">
+    <meta name="coverage" content="private">
+    <meta name="distribution" content="private">
+    <meta name="rating" content="General">
+
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
-<div>
-    <a ui-sref="module1">Lazy Module1</a>
-</div>
-
-<div>
-    <a ui-sref="module2">Lazy Module2</a>
-</div>
-
-<div>
-    <a ui-sref="module3">Lazy Module3</a>
-</div>
-
 
 <div ui-view="vw"></div>
 
+<script data-main="main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>

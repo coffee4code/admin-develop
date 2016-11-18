@@ -1,6 +1,20 @@
-define(['angular'],function(angular) {
-    angular.module('app.module1.controller',[])
-        .controller('module1Ctrl', ['$scope', function ($scope) {
-            $scope.message = 'this is message from controller1';
-        }]);
-});
+define(
+    [
+        'angular',
+        './service'
+    ],
+    function (angular) {
+        angular.module('module1.controller', [
+            'module1.service'
+        ])
+            .controller('module1Ctrl', [
+                '$scope',
+                'service1',
+                function ($scope, service1) {
+                    $scope.msg = 'this is message from controller1';
+                    $scope.serviceMsg = service1.getMessage();
+                }
+            ])
+        ;
+    }
+);

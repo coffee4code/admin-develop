@@ -1,3 +1,13 @@
-define(['angular','./service','./controller'],function(angular){
-    angular.module('app.module1',['app.module1.controller','app.module1.service']);
-});
+define(
+    [
+        'angular',
+        './controller',
+        './directive'
+    ],
+    function(angular){
+        angular.module('modules.module1',[
+            'module1.controller',
+            'module1.directive'
+        ]);
+    }
+);
