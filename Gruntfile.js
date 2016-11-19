@@ -33,6 +33,13 @@ module.exports = function (grunt) {
                 'app/nls/**/*.js'
             ]
         },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                background: false,
+                singleRun: false
+            }
+        },
         watch: {
             watchSassStyle: {
                 files: ['sass/style.scss', 'sass/components/*.scss'],
@@ -100,6 +107,15 @@ module.exports = function (grunt) {
                     duration: 1
                 }
             },
+            karmaUnit: {
+                options: {
+                    enabled: true,
+                    message: 'Karma Test!',
+                    title: 'Karma',
+                    success: false,
+                    duration: 1
+                }
+            },
             release: {
                 options: {
                     enabled: true,
@@ -130,7 +146,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-testem');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-karma');
 
+    grunt.registerTask('unit_test', ['karma:unit', 'notify:karmaUnit']);
     grunt.registerTask('code_check', ['eslint', 'notify:eslint']);
     grunt.registerTask('sass_style', ['sass:styleExpanded', 'sass:styleMin', 'notify:sassStyleCompile']);
 
