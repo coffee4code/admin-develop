@@ -1,52 +1,64 @@
 {
-  "name": "Hobbees Admin Project",
-  "version": "1.0.0",
-  "description": "Hobbees Admin Project, with Angular + Requirejs + Sass + Bower + Grunt + Metronic",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "developer@112.74.211.9:/var/www/git/admin.git"
-  },
-  "keywords": [
-    "Hobbees",
-    "Admin",
-    "Angular",
-    "Requirejs",
-    "Sass",
-    "Bower",
-    "Grunt",
-    "Metronic"
-  ],
-  "author": "YinGang <mr.yingang.hb@gmail.com>",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-banner": "~0.6.0",
-    "grunt-browser-sync": "~2.2.0",
-    "grunt-concurrent": "~2.3.0",
-    "grunt-contrib-clean": "~1.0.0",
-    "grunt-contrib-compress": "~1.2.0",
-    "grunt-contrib-concat": "~1.0.0",
-    "grunt-contrib-copy": "~1.0.0",
-    "grunt-contrib-jade": "~1.0.0",
-    "grunt-contrib-testem": "~0.5.22",
-    "grunt-contrib-uglify": "~1.0.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-contrib-cssmin": "~1.0.1",
-    "grunt-eslint": "^19.0.0",
-    "grunt-notify": "~0.4.5",
-    "grunt-remove-logging": "~0.2.0",
-    "grunt-rename": "~0.1.4",
-    "grunt-sass": "~1.1.0",
-    "grunt-text-replace": "~0.4.0",
-    "karma": "^1.3.0",
-    "karma-jasmine": "^1.3.0",
-    "karma-requirejs": "^1.1.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-phantomjs-launcher": "^1.0.2"
-  }
+    "name": "hobbees-admin-project",
+    "version": "1.0.0",
+    "description": "Hobbees Admin Project with Angular + Requirejs + NPM + Bower + Sass + Metronic + Karma",
+    "main": "app/main.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~1.0.1",
+        "grunt-banner": "~0.6.0",
+        "grunt-browser-sync": "~2.2.0",
+        "grunt-concurrent": "~2.3.0",
+        "grunt-contrib-clean": "~1.0.0",
+        "grunt-contrib-compress": "~1.2.0",
+        "grunt-contrib-concat": "~1.0.0",
+        "grunt-contrib-copy": "~1.0.0",
+        "grunt-contrib-jade": "~1.0.0",
+        "grunt-contrib-testem": "~0.5.22",
+        "grunt-contrib-uglify": "~1.0.1",
+        "grunt-contrib-watch": "~1.0.0",
+        "grunt-contrib-cssmin": "~1.0.1",
+        "grunt-eslint": "^19.0.0",
+        "grunt-notify": "~0.4.5",
+        "grunt-remove-logging": "~0.2.0",
+        "grunt-rename": "~0.1.4",
+        "grunt-sass": "~1.1.0",
+        "grunt-text-replace": "~0.4.0",
+        "requirejs": "^2.3.2",
+        "jasmine-core": "^2.5.2",
+        "karma": "^1.3.0",
+        "karma-jasmine": "^1.0.2",
+        "karma-requirejs": "^1.1.0",
+        "karma-chrome-launcher": "^2.0.0",
+        "karma-phantomjs-launcher": "^1.0.2"
+    },
+    "scripts": {
+        "test": "karma start",
+        "dev": "grunt develop",
+        "build": "grunt release"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/smallyin/admin-develop.git"
+    },
+    "keywords": [
+        "Hobbees",
+        "Admin",
+        "Angular",
+        "Requirejs",
+        "Sass",
+        "Bower",
+        "NPM",
+        "Metronic",
+        "Karma"
+    ],
+    "author": "YinGang <mr.yingang.hb@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/smallyin/admin-develop/issues"
+    },
+    "homepage": "https://github.com/smallyin/admin-develop#readme"
 }
