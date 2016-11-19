@@ -49,8 +49,10 @@ require.config({
             // ]
             locale: ''
         }
+    },
+    callback: function () {
+        require(['application'], function (application) {
+            application.bootstrap();
+        });
     }
-});
-require(['application'], function (application) {
-    application.bootstrap();
 });
