@@ -1,6 +1,7 @@
 'use strict';
 require.config({
     baseUrl: '',
+    urlArgs: 'bustcache=' + (new Date()).getTime(),
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
         underscore: '../bower_components/underscore/underscore',
