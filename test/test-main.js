@@ -29,16 +29,16 @@ require.config({
         uiRouter: 'bower_components/ui-router/release/angular-ui-router',
         ocLazyLoad: 'bower_components/ocLazyLoad/dist/ocLazyLoad',
 
-        decorator: 'app/js/app.decorator',
-        constant: 'app/js/app.constant',
-        config: 'app/js/app.config',
-        locale: 'app/js/app.locale',
-        router: 'app/js/app.router',
-        directive: 'app/js/app.directive',
-        filter: 'app/js/app.filter',
-        controller: 'app/js/app.controller',
-        service: 'app/js/app.service',
-        application: 'app/js/app'
+        decorator: 'app/boot/app.decorator',
+        constant: 'app/boot/app.constant',
+        config: 'app/boot/app.config',
+        locale: 'app/boot/app.locale',
+        router: 'app/boot/app.router',
+        directive: 'app/boot/app.directive',
+        filter: 'app/boot/app.filter',
+        controller: 'app/boot/app.controller',
+        service: 'app/boot/app.service',
+        application: 'app/boot/app'
     },
     shim: {
         jquery: {
