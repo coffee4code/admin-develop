@@ -3,6 +3,12 @@ env:
   amd: true
   jquery: true
 
+globals:
+  module: 1
+  angular: 1
+  require: 1
+  requirejs: 1
+
 rules:
   # http://eslint.org/docs/rules/#possible-errors
   # https://github.com/y8n/ESLint-rules-docs-cn
