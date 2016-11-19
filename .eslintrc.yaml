@@ -8,6 +8,9 @@ globals:
   angular: 1
   require: 1
   requirejs: 1
+  describe: 1
+  it: 1
+  expect: 1
 
 rules:
   # http://eslint.org/docs/rules/#possible-errors
@@ -233,7 +236,7 @@ rules:
       after: true
   semi: 2
   sort-vars:
-    - 2
+    - 1
     - ignoreCase: true
   space-before-blocks:
     - 2

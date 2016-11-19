@@ -2,7 +2,7 @@
 define(
     [
         'angular',
-        'app/plugins/requirejs/i18n!app/nls/button.js'
+        'app/plugins/requirejs/i18n!app/nls/button'
     ],
     function (angular, button) {
         angular.module('app.locale', [])

@@ -38,6 +38,36 @@ require.config({
         ocLazyLoad: {
             deps: ['angular'],
             exports: 'ocLazyLoad'
+        },
+        decorator: {
+            exports: 'decorator'
+        },
+        constant: {
+            exports: 'constant'
+        },
+        config: {
+            exports: 'config'
+        },
+        locale: {
+            exports: 'locale'
+        },
+        router: {
+            exports: 'router'
+        },
+        directive: {
+            exports: 'directive'
+        },
+        filter: {
+            exports: 'filter'
+        },
+        controller: {
+            exports: 'controller'
+        },
+        service: {
+            exports: 'service'
+        },
+        application: {
+            exports: 'application'
         }
     },
     config: {
