@@ -19,6 +19,7 @@ module.exports = function (config) {
             {pattern: 'bower_components/jquery/dist/jquery.js', included: false},
             {pattern: 'bower_components/underscore/underscore.js', included: false},
             {pattern: 'bower_components/angular/angular.js', included: false},
+            {pattern: 'bower_components/angular-mocks/angular-mocks.js', included: false},
             {pattern: 'bower_components/ui-router/release/angular-ui-router.js', included: false},
             {pattern: 'bower_components/ocLazyLoad/dist/ocLazyLoad.js', included: false},
             {pattern: 'app/**/*.js', included: false},
@@ -40,7 +41,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['spec'],
 
 
         // web server port

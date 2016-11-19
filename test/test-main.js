@@ -25,6 +25,7 @@ require.config({
         underscore: 'bower_components/underscore/underscore',
 
         angular: 'bower_components/angular/angular',
+        angularMocks: 'bower_components/angular-mocks/angular-mocks',
         uiRouter: 'bower_components/ui-router/release/angular-ui-router',
         ocLazyLoad: 'bower_components/ocLazyLoad/dist/ocLazyLoad',
 
@@ -48,6 +49,10 @@ require.config({
         },
         angular: {
             exports: 'angular'
+        },
+        angularMocks: {
+            deps: ['angular'],
+            exports: 'angularMocks'
         },
         uiRouter: {
             deps: ['angular'],
