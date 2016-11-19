@@ -1,22 +1,23 @@
 require.config({
     baseUrl: '',
     paths: {
-        jquery: './bower_components/jquery/dist/jquery',
-        underscore: './bower_components/underscore/underscore',
+        jquery: 'bower_components/jquery/dist/jquery',
+        underscore: 'bower_components/underscore/underscore',
 
-        angular: './bower_components/angular/angular',
-        uiRouter: './bower_components/ui-router/release/angular-ui-router',
-        ocLazyLoad: './bower_components/ocLazyLoad/dist/ocLazyLoad',
+        angular: 'bower_components/angular/angular',
+        uiRouter: 'bower_components/ui-router/release/angular-ui-router',
+        ocLazyLoad: 'bower_components/ocLazyLoad/dist/ocLazyLoad',
 
-        decorator: './app/js/app.decorator',
-        constant: './app/js/app.constant',
-        config: './app/js/app.config',
-        router: './app/js/app.router',
-        directive: './app/js/app.directive',
-        filter: './app/js/app.filter',
-        controller: './app/js/app.controller',
-        service: './app/js/app.service',
-        application: './app/js/app'
+        decorator: 'app/js/app.decorator',
+        constant: 'app/js/app.constant',
+        config: 'app/js/app.config',
+        locale: 'app/js/app.locale',
+        router: 'app/js/app.router',
+        directive: 'app/js/app.directive',
+        filter: 'app/js/app.filter',
+        controller: 'app/js/app.controller',
+        service: 'app/js/app.service',
+        application: 'app/js/app'
     },
     shim: {
         'jquery': {

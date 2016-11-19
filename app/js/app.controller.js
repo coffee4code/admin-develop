@@ -1,17 +1,13 @@
 define(
     [
-        'angular',
-        'i18n!app/nls/button.js'
+        'angular'
     ],
-    function (angular,button) {
+    function (angular) {
         angular.module('app.controller', [])
             .controller('appCtrl',[
                 '$rootScope',
                 '$scope',
                 function($rootScope,$scope){
-                    $rootScope.LANG = {
-                        BUTTON: button
-                    };
                     console.info('appCtrl initialized');
                 }
             ])

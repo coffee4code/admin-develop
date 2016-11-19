@@ -3,6 +3,7 @@ define(
         'angular',
         'constant',
         'config',
+        'locale',
         'router',
         'directive',
         'filter',
@@ -14,6 +15,7 @@ define(
         var application = angular.module('app', [
             'app.constant',
             'app.config',
+            'app.locale',
             'app.router',
             'app.directive',
             'app.filter',
@@ -21,7 +23,7 @@ define(
             'app.service'
         ])
             .run([function(){
-                console.info('run');
+                console.info('run from app.js');
             }]);
 
         application.bootstrap = function () {
