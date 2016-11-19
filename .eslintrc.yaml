@@ -2,15 +2,14 @@ env:
   browser: true
   amd: true
   jquery: true
+  jasmine: true
 
 globals:
   module: 1
   angular: 1
   require: 1
   requirejs: 1
-  describe: 1
-  it: 1
-  expect: 1
+  inject: 1
 
 rules:
   # http://eslint.org/docs/rules/#possible-errors

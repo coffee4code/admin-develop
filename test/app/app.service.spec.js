@@ -1,5 +1,5 @@
 'use strict';
-define(['angularMocks', 'service'], function (angularMocks, service) {
+define(['angularMocks', 'service'], function () {
     var Users;
 
     // Load our api.users module
