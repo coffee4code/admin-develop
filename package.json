@@ -36,8 +36,9 @@
         "karma-phantomjs-launcher": "^1.0.2"
     },
     "scripts": {
-        "test": "karma start",
+        "install": "bower install --save && npm install --save-dev",
         "dev": "grunt develop",
+        "test": "karma start",
         "build": "grunt release"
     },
     "repository": {
