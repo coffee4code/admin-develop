@@ -1,3 +1,4 @@
+'use strict';
 define(
     [
         'angular'
@@ -7,7 +8,7 @@ define(
             .service('service1', function () {
                 this.getMessage = function () {
                     return 'Hello from lazy loaded service';
-                }
+                };
             })
         ;
     }

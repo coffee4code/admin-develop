@@ -1,3 +1,4 @@
+'use strict';
 define(
     [
         'angular',
@@ -5,13 +6,11 @@ define(
         'ocLazyLoad'
     ],
     function (angular) {
-
         angular.module('app.decotator', [
             'ui.router',
             'oc.lazyLoad'
         ])
-            .config(['$stateProvider',function ($stateProvider) {
-
+            .config(['$stateProvider', function ($stateProvider) {
                 /**
                  * module: string module id
                  * files: a single file (string), or an array of files to load
@@ -21,13 +20,13 @@ define(
                  *  - templateProvider: (function)
                  *  - resolve: (array) minification-safe injection function array
                  */
-                function lazyBundle(module, files, templateUrl) {
+                function lazyBundle (module, files, templateUrl) {
                     var lazyDeferred;
                     return {
-                        templateProvider: function lazyTemplateProvider() {
+                        templateProvider: function lazyTemplateProvider () {
                             return lazyDeferred.promise;
                         },
-                        resolve: ['$templateCache', '$ocLazyLoad', '$q', '$http', '$compile', function lazyResolve($templateCache, $ocLazyLoad, $q, $http, $compile) {
+                        resolve: ['$templateCache', '$ocLazyLoad', '$q', '$http', '$compile', function ($templateCache, $ocLazyLoad, $q, $http) {
                             lazyDeferred = $q.defer();
                             return $ocLazyLoad.load({
                                 name: module,
@@ -71,13 +70,14 @@ define(
                             var bundle = lazyBundle(config.lazyModule, config.lazyFiles, config.lazyTemplateUrl);
                             config.resolve = config.resolve || {};
                             config.resolve.$lazyLoader = bundle.resolve;
-                            if (config.lazyTemplateUrl) config.templateProvider = bundle.templateProvider;
+                            if (config.lazyTemplateUrl) {
+                                config.templateProvider = bundle.templateProvider;
+                            }
                         }
                         result[name] = config;
                     });
                     return views;
                 });
-
             }])
         ;
     }

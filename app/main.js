@@ -1,3 +1,4 @@
+'use strict';
 require.config({
     baseUrl: '',
     paths: {
@@ -20,20 +21,20 @@ require.config({
         application: '../app/js/app'
     },
     shim: {
-        'jquery': {
+        jquery: {
             exports: '$'
         },
-        'underscore': {
+        underscore: {
             exports: '_'
         },
-        'angular': {
+        angular: {
             exports: 'angular'
         },
-        'uiRouter': {
+        uiRouter: {
             deps: ['angular'],
             exports: 'uiRouter'
         },
-        'ocLazyLoad': {
+        ocLazyLoad: {
             deps: ['angular'],
             exports: 'ocLazyLoad'
         }

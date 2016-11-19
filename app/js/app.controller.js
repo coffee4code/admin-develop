@@ -1,14 +1,14 @@
+'use strict';
 define(
     [
         'angular'
     ],
     function (angular) {
         angular.module('app.controller', [])
-            .controller('appCtrl',[
+            .controller('appCtrl', [
                 '$rootScope',
-                '$scope',
-                function($rootScope,$scope){
-                    console.info('appCtrl initialized');
+                function ($rootScope) {
+                    $rootScope.run = 'run';
                 }
             ])
         ;

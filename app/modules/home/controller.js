@@ -1,3 +1,4 @@
+'use strict';
 define(
     [
         'angular'
@@ -12,3 +13,4 @@ define(
             ]);
     }
 );
+

@@ -1,3 +1,4 @@
+'use strict';
 define(
     [
         'angular',
@@ -11,7 +12,6 @@ define(
         'service'
     ],
     function (angular) {
-
         var application = angular.module('app', [
             'app.constant',
             'app.config',
@@ -22,13 +22,12 @@ define(
             'app.controller',
             'app.service'
         ])
-            .run([function(){
-                console.info('run from app.js');
+            .run([function () {
+
             }]);
 
         application.bootstrap = function () {
-            'use strict';
-            angular.bootstrap(document, ['app']);
+            angular.bootstrap(window.document, ['app']);
         };
 
         return application;

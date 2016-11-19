@@ -1,9 +1,10 @@
+'use strict';
 define({
-    "root": {
-        "OK": "OK",
-        "CANCEL": "Cancel",
-        "DELETE": "Delete"
+    root: {
+        OK: 'OK',
+        CANCEL: 'Cancel',
+        DELETE: 'Delete'
     },
-    "zh-cn":true,
-    "zh-hk":true
+    'zh-cn': true,
+    'zh-hk': true
 });
