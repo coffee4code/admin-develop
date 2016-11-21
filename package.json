@@ -39,10 +39,6 @@
     "requirejs": "^2.3.2"
   },
   "scripts": {
-    "install": "bower install --save && npm install --save-dev",
-    "dev": "grunt develop",
-    "test": "karma start",
-    "build": "grunt release"
   },
   "repository": {
     "type": "git",
