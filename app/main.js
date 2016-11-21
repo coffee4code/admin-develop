@@ -71,7 +71,7 @@ require.config({
         }
     },
     config: {
-        i18n: {
+        'app/plugins/requirejs/i18n': {
             // language support
             // [
             //      ''           // English, default language
