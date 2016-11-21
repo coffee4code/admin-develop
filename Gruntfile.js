@@ -75,6 +75,7 @@ module.exports = function (grunt) {
                 tasks: [
                     'sass_style',
                     'eslint',
+                    'karma',
                     'notify:release'
                 ]
             }
