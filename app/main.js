@@ -75,7 +75,7 @@ require.config({
             // language support
             // [
             //      ''           // English, default language
-            //      'zh-ch',     // Simplified Chinese
+            //      'zh-cn',     // Simplified Chinese
             //      'zh-hk',     // HK Traditional Chinese
             // ]
             locale: ''
