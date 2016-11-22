@@ -8,7 +8,10 @@ module.exports = function (grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'app/css/style.css': 'sass/style.scss'
+                    'app/css/components.css': 'sass/global/components.scss',
+                    'app/css/plugins.css': 'sass/global/plugins.scss',
+                    'app/css/layout.css': 'sass/layout/layout.scss',
+                    'app/css/style.css': 'sass/style/style.scss'
                 }
             },
 
@@ -18,7 +21,10 @@ module.exports = function (grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'app/css/style.min.css': 'sass/style.scss'
+                    'app/css/components.min.css': 'sass/global/components.scss',
+                    'app/css/plugins.min.css': 'sass/global/plugins.scss',
+                    'app/css/layout.min.css': 'sass/layout/layout.scss',
+                    'app/css/style.min.css': 'sass/style/style.scss'
                 }
             }
         },
