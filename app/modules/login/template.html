@@ -1,0 +1,43 @@
+<div class="login">
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="app/images/logo-white.png" alt=""/>
+            </a>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" name="loginForm" novalidate>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">{{::LANG.PLACEHOLDER.USERNAME}}</label>
+                <div class="input-icon right">
+                    <i class="fa fa-user"></i>
+                    <input name="username" ng-model="user.username" ng-required="true" ng-minlength="3" ng-model-options="{debounce: 300}" class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">{{::LANG.PLACEHOLDER.PASSWORD}}</label>
+                <div class="input-icon right">
+                    <i class="fa fa-lock"></i>
+                    <input name="password" ng-model="user.password" ng-required="true" ng-minlength="6" ng-model-options="{debounce: 300}" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button hb-btn-busy is-busy="isBusy" reset-text="{{ ::LANG.BUTTON.LOGIN }}" ng-click="onLogin();" ng-disabled="loginForm.$invalid" type="button" class="btn red btn-block uppercase"></button>
+            </div>
+            <div class="alert alert-danger ng-hide" ng-show="(loginForm.username.$dirty && loginForm.username.$error.minlength) || (loginForm.password.$dirty && loginForm.password.$error.minlength)">
+                <button class="close" data-close="alert"></button>
+                <span>{{::LANG.ALERT.ENTER_USERNAME_OR_PASSWORD}}</span>
+            </div>
+            <div class="alert alert-danger ng-hide">
+                <button class="close" data-close="alert"></button>
+                <span>{{::LANG.ALERT.USERNAME_OR_PASSWORD_NOT_CORRECT}}</span>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+    </div>
+    <div class="copyright" ng-bind-html="::LANG.META.COPYRIGHT | trustedHtml"></div>
+</div>

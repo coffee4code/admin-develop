@@ -1,6 +1,4 @@
-//## Main Layout CSS Builder
-
 @import '../global/_variables'; // global metronic framework variables
 @import '../global/components/_mixins'; // global metronic framework mixings
 
-@import 'components/loader';
+@import "pages/login";

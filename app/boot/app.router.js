@@ -26,30 +26,43 @@ define(
                         asyncLoader: require
                     });
 
-                    $urlRouterProvider.otherwise('/home');
+                    $urlRouterProvider.otherwise('/login');
 
                     $stateProvider
 
-                        .state('home', {
-                            url: '/home',
+                        .state('login', {
+                            url: '/login',
                             views: {
                                 vw: {
-                                    lazyModule: 'modules.home',
-                                    lazyFiles: 'app/modules/home/module',
-                                    lazyTemplateUrl: 'app/modules/home/template.html',
-                                    controller: 'homeCtrl'
+                                    lazyModule: 'modules.login',
+                                    lazyFiles: 'app/modules/login/module',
+                                    lazyTemplateUrl: 'app/modules/login/template.html',
+                                    controller: 'loginCtrl'
                                 }
                             }
                         })
 
-                        .state('module1', {
-                            url: '/module1',
+                        .state('db', {
+                            url: '/dashboard',
+                            abstract: true,
                             views: {
                                 vw: {
-                                    lazyModule: 'modules.module1',
-                                    lazyFiles: 'app/modules/module1/module',
-                                    lazyTemplateUrl: 'app/modules/module1/template.html',
-                                    controller: 'module1Ctrl'
+                                    lazyModule: 'modules.db',
+                                    lazyFiles: 'app/modules/db/module',
+                                    lazyTemplateUrl: 'app/modules/db/template.html',
+                                    controller: 'dbCtrl'
+                                }
+                            }
+                        })
+
+                        .state('db.welcome', {
+                            url: '',
+                            views: {
+                                vw1: {
+                                    lazyModule: 'modules.db.welcome',
+                                    lazyFiles: 'app/modules/db.welcome/module',
+                                    lazyTemplateUrl: 'app/modules/db.welcome/template.html',
+                                    controller: 'dbWelcomeCtrl'
                                 }
                             }
                         })

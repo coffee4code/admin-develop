@@ -5,10 +5,10 @@ define(
         './service'
     ],
     function (angular) {
-        angular.module('module1.controller', [
-            'module1.service'
+        angular.module('db.controller', [
+            'db.service'
         ])
-            .controller('module1Ctrl', [
+            .controller('dbCtrl', [
                 '$scope',
                 'service1',
                 function ($scope, service1) {

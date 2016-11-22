@@ -1,0 +1,31 @@
+@mixin loader($x, $size, $border-bg, $border-part) {
+	.loader-#{$x}-container {
+		display: inline-block;
+		width: $size;
+		height: $size;
+
+		.loader {
+			position: relative;
+			display: inline-block;
+			top: 2px;
+			width: 15px;
+			height: 15px;
+			border-radius: 100%;
+			border: 3px solid $border-bg;
+			border-top-color: $border-part;
+			animation: spin 1s infinite linear;
+		}
+	}
+}
+
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@include loader('small',20px, rgba(255, 255, 255, 0.35), #fff);
+@include loader('middle',30px, rgba(255, 255, 255, 0.35), #fff);
+@include loader('big',40px, rgba(255, 255, 255, 0.35), #fff);
+

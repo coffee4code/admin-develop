@@ -4,7 +4,7 @@ define(
         'angular'
     ],
     function (angular) {
-        angular.module('module1.directive', [])
+        angular.module('db.directive', [])
             .directive('greeting', [function () {
                 return {
                     restrict: 'EAC',

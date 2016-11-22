@@ -5,8 +5,8 @@ define(
         './controller'
     ],
     function (angular) {
-        angular.module('modules.home', [
-            'home.controller'
+        angular.module('modules.login', [
+            'login.controller'
         ]);
     }
 );

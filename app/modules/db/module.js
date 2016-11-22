@@ -6,9 +6,9 @@ define(
         './directive'
     ],
     function (angular) {
-        angular.module('modules.module1', [
-            'module1.controller',
-            'module1.directive'
+        angular.module('modules.db', [
+            'db.controller',
+            'db.directive'
         ]);
     }
 );

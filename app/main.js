@@ -82,7 +82,7 @@ require.config({
         }
     },
     callback: function () {
-        require(['application'], function (application) {
+        require(['jquery', 'application'], function ($, application) {
             application.bootstrap();
         });
     }

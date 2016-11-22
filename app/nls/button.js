@@ -5,6 +5,8 @@ define({
     root: {
         OK: 'OK',
         CANCEL: 'Cancel',
-        DELETE: 'Delete'
+        DELETE: 'Delete',
+        LOGIN: 'Login',
+        LOADING: 'Loading...'
     }
 });
