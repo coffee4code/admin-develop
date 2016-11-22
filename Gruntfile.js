@@ -59,6 +59,8 @@ module.exports = function (grunt) {
             }
         },
 
+        clean: ['tmp/'],
+
         concurrent: {
             options: {
                 logConcurrentOutput: true,

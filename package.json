@@ -38,8 +38,7 @@
     "karma-spec-reporter": "0.0.26",
     "requirejs": "^2.3.2"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smallyin/admin-develop.git"
