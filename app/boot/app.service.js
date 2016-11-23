@@ -6,22 +6,19 @@ define(
     ],
     function (angular) {
         angular.module('app.service', ['ngCookies'])
-            .service('UserService', [function () {
-                this.user = new User();
-
+            .service('UserService', ['$q', '$http', function ($q, $http) {
                 this.getUser = getUser;
-                this.setUser = setUser;
 
-                function User () {
-                    this.username = null;
-                    this.password = null;
-                }
                 function getUser () {
-                    return this.user;
-                }
-                function setUser (username, password) {
-                    this.user.username = username;
-                    this.user.password = password;
+                    var defer = $q.defer();
+                    $http({url: 'http://test-server.findhobbees.com/cl_api/api_login', method: 'POST'})
+                        .then(function (response) {
+                            console.info(response);
+                        }, function () {
+                            console.info('rejected');
+                        })
+                    ;
+                    return defer.promise;
                 }
             }])
             .service('SignService', ['$q', '$timeout', 'AuthService', function ($q, $timeout, AuthService) {
@@ -58,7 +55,7 @@ define(
                     return defer.promise;
                 }
             }])
-            .service('AuthService', ['$window', '$timeout', '$q', '$http', '$cookies', function ($window, $timeout, $q, $http, $cookies) {
+            .service('AuthService', ['$window', '$timeout', '$q', '$cookies', function ($window, $timeout, $q, $cookies) {
                 this.auth = new Auth();
 
                 this.getAuth = getAuth;
@@ -72,8 +69,15 @@ define(
                     this.expr = null;
                 }
                 function getAuth () {
-                    var data = this.auth.token ? this.auth : JSON.parse($cookies.get('token'));
-                    return data.token;
+                    if (this.auth.token) {
+                        return this.auth;
+                    }
+                    var data = $cookies.get('token');
+                    if (data) {
+                        data = JSON.parse(data);
+                        return data;
+                    }
+                    return null;
                 }
                 function checkAuth (force) {
                     if (force) {
@@ -111,6 +115,74 @@ define(
                     var exp = new Date();
                     exp.setSeconds(exp.getSeconds() + Number(this.token.expr));
                     $cookies.put('token', JSON.stringify(this.auth), {path: '/', expires: exp});
+                }
+            }])
+            .service('timestampService', [function () {
+                this.request = request;
+                this.response = response;
+
+                // Tag a json request with start timestamp when request
+                function request (config) {
+                    if (!(/\.html/.test(config.url))) {
+                        config.timeStart = new Date().getTime();
+                    }
+                    return config;
+                }
+                // Log and debug response timestamp
+                function response (OriginResponse) {
+                    if (!(/\.html/.test(OriginResponse.config.url))) {
+                        OriginResponse.config.timeEnd = new Date().getTime();
+                        var time = OriginResponse.config.timeEnd - OriginResponse.config.timeStart;
+                        console.group('------------json request----------');
+                        console.info('url: ' + OriginResponse.config.url);
+                        console.info('time: ' + time);
+                        console.groupEnd();
+                    }
+                    return OriginResponse;
+                }
+            }])
+            .service('SessionService', ['$rootScope', '$q', 'AuthService', function ($rootScope, $q, AuthService) {
+                this.request = request;
+                this.response = response;
+                this.requestError = requestError;
+                this.responseError = responseError;
+
+                // Auto append token to request data
+                function request (config) {
+                    config.data = config.data || {};
+                    var auth = AuthService.getAuth();
+                    if (auth && auth.token) {
+                        config.data.token = auth.token;
+                    }
+                    return config;
+                }
+                //TODO Refresh token if response success
+                //TODO Clear token if response expired broadcast expired event
+                function response (originalResponse) {
+                    return originalResponse;
+                }
+                function requestError (rejection) {
+                    return $q.reject(rejection);
+                }
+                //TODO Broadcast Server Exception event, such as 404 and so on.
+                function responseError (rejection) {
+                    console.info('response Error', rejection);
+                    // var config = rejection.config || {};
+                    // if (!config.ignoreAuthModule) {
+                    //     switch (rejection.status) {
+                    //         case 401:
+                    //             var deferred = $q.defer();
+                    //             var bufferLength = httpBuffer.append(config, deferred);
+                    //             if (bufferLength === 1)
+                    //                 $rootScope.$broadcast('event:auth-loginRequired', rejection);
+                    //             return deferred.promise;
+                    //         case 403:
+                    //             $rootScope.$broadcast('event:auth-forbidden', rejection);
+                    //             break;
+                    //     }
+                    // }
+                    // otherwise, default behaviour
+                    return $q.reject(rejection);
                 }
             }])
         ;
