@@ -1,21 +1,27 @@
 'use strict';
 define(
     [
-        'angular',
-        './service'
+        'angular'
     ],
     function (angular) {
-        angular.module('db.controller', [
-            'db.service'
-        ])
+        angular.module('db.controller', [])
             .controller('dbCtrl', [
                 '$scope',
+                '$window',
                 'UserService',
-                'service1',
-                function ($scope, UserService, service1) {
+                'SignService',
+                function ($scope, $window, UserService, SignService) {
                     $scope.user = UserService.getUser();
-                    $scope.msg = 'this is message from controller1';
-                    $scope.serviceMsg = service1.getMessage();
+                    $scope.onSignOut = onSignOut;
+
+                    function onSignOut () {
+                        SignService
+                            .signOut()
+                            .finally(function () {
+                                $window.location.reload();
+                            })
+                        ;
+                    }
                 }
             ])
         ;

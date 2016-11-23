@@ -37,7 +37,18 @@ define(
                                     lazyModule: 'modules.login',
                                     lazyFiles: 'app/modules/login/module',
                                     lazyTemplateUrl: 'app/modules/login/template.html',
-                                    controller: 'loginCtrl'
+                                    controller: 'loginCtrl',
+                                    resolve: {
+                                        auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
+                                            if (!AuthService.getAuth()) {
+                                                return $q.when();
+                                            }
+                                            $timeout(function () {
+                                                $state.go('db.welcome');
+                                            });
+                                            return $q.reject();
+                                        }]
+                                    }
                                 }
                             }
                         })
@@ -50,7 +61,18 @@ define(
                                     lazyModule: 'modules.db',
                                     lazyFiles: 'app/modules/db/module',
                                     lazyTemplateUrl: 'app/modules/db/template.html',
-                                    controller: 'dbCtrl'
+                                    controller: 'dbCtrl',
+                                    resolve: {
+                                        auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
+                                            if (AuthService.getAuth()) {
+                                                return $q.when();
+                                            }
+                                            $timeout(function () {
+                                                $state.go('login');
+                                            });
+                                            return $q.reject();
+                                        }]
+                                    }
                                 }
                             }
                         })

@@ -1,11 +1,10 @@
 'use strict';
 define(
     [
-        'angular',
-        './service'
+        'angular'
     ],
     function (angular) {
-        angular.module('login.controller', ['login.service'])
+        angular.module('login.controller', [])
             .controller('loginCtrl', [
                 '$scope',
                 '$state',
