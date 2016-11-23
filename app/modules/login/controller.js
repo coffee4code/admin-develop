@@ -8,14 +8,16 @@ define(
             .controller('loginCtrl', [
                 '$scope',
                 '$state',
-                'UserService',
                 'SignService',
-                function ($scope, $state, UserService, SignService) {
+                function ($scope, $state, SignService) {
                     $scope.current = {
                         isBusy: false,
                         erCode: 0
                     };
-                    $scope.user = UserService.getUser();
+                    $scope.user = {
+                        username: '',
+                        password: ''
+                    };
                     $scope.onSignIn = onSignIn;
 
                     function onSignIn () {

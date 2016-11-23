@@ -40,13 +40,14 @@ define(
                                     controller: 'loginCtrl',
                                     resolve: {
                                         auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                            if (!AuthService.getAuth()) {
-                                                return $q.when();
-                                            }
-                                            $timeout(function () {
-                                                $state.go('db.welcome');
-                                            });
-                                            return $q.reject();
+                                            return AuthService
+                                                .checkAuth()
+                                                .then(function (tokenValid) {
+                                                    if (tokenValid) {
+                                                        $state.go('db.welcome');
+                                                        return false;
+                                                    }
+                                                });
                                         }]
                                     }
                                 }
@@ -64,13 +65,14 @@ define(
                                     controller: 'dbCtrl',
                                     resolve: {
                                         auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                            if (AuthService.getAuth()) {
-                                                return $q.when();
-                                            }
-                                            $timeout(function () {
-                                                $state.go('login');
-                                            });
-                                            return $q.reject();
+                                            return AuthService
+                                                .checkAuth()
+                                                .then(function (tokenValid) {
+                                                    if (!tokenValid) {
+                                                        $state.go('login');
+                                                        return false;
+                                                    }
+                                                });
                                         }]
                                     }
                                 }

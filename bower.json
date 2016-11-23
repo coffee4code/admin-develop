@@ -36,6 +36,7 @@
     "ui-router": "#0.2.18",
     "ocLazyLoad": "#0.3.10",
     "requirejs": "#2.3.2",
-    "angular-mocks": "^1.5.8"
+    "angular-mocks": "^1.5.8",
+    "angular-cookies": "~1.5.8"
   }
 }

@@ -8,10 +8,8 @@ define(
             .controller('dbCtrl', [
                 '$scope',
                 '$window',
-                'UserService',
                 'SignService',
-                function ($scope, $window, UserService, SignService) {
-                    $scope.user = UserService.getUser();
+                function ($scope, $window, SignService) {
                     $scope.onSignOut = onSignOut;
 
                     function onSignOut () {

@@ -1,10 +1,11 @@
 'use strict';
 define(
     [
-        'angular'
+        'angular',
+        'ngCookies'
     ],
     function (angular) {
-        angular.module('app.service', [])
+        angular.module('app.service', ['ngCookies'])
             .service('UserService', [function () {
                 this.user = new User();
 
@@ -12,8 +13,8 @@ define(
                 this.setUser = setUser;
 
                 function User () {
-                    this.username = '';
-                    this.password = '';
+                    this.username = null;
+                    this.password = null;
                 }
                 function getUser () {
                     return this.user;
@@ -23,16 +24,17 @@ define(
                     this.user.password = password;
                 }
             }])
-            .service('SignService', ['$q', '$timeout', 'UserService', 'AuthService', function ($q, $timeout, UserService, AuthService) {
+            .service('SignService', ['$q', '$timeout', 'AuthService', function ($q, $timeout, AuthService) {
                 this.signIn = signIn;
                 this.signOut = signOut;
 
                 function signIn (user) {
                     var defer = $q.defer();
                     $timeout(function () {
+                        var token = 'this-is-a-token',
+                            expire = 1800;
                         if (user.username === 'demo' && user.password === 'demo1234') {
-                            UserService.setUser(user.username, user.password);
-                            AuthService.setAuth();
+                            AuthService.setAuth(token, expire);
                             defer.resolve(true);
                             return false;
                         }
@@ -50,28 +52,65 @@ define(
                     var defer = $q.defer();
                     $timeout(function () {
                         AuthService.delAuth();
-                        UserService.setUser('', '');
                         defer.resolve(true);
-                    }, 1000);
+                    }, 0);
 
                     return defer.promise;
                 }
             }])
-            .service('AuthService', ['$window', function ($window) {
-                this.authKey = 'auth';
+            .service('AuthService', ['$window', '$timeout', '$q', '$http', '$cookies', function ($window, $timeout, $q, $http, $cookies) {
+                this.auth = new Auth();
 
                 this.getAuth = getAuth;
                 this.setAuth = setAuth;
                 this.delAuth = delAuth;
+                this.expAuth = expAuth;
+                this.checkAuth = checkAuth;
 
-                function getAuth () {
-                    return $window.localStorage.getItem(this.authKey);
+                function Auth () {
+                    this.token = null;
+                    this.expr = null;
                 }
-                function setAuth () {
-                    $window.localStorage.setItem(this.authKey, 1);
+                function getAuth () {
+                    var data = this.auth.token ? this.auth : JSON.parse($cookies.get('token'));
+                    return data.token;
+                }
+                function checkAuth (force) {
+                    if (force) {
+                        delAuth();
+                    }
+
+                    var defer = $q.defer(),
+                        token = $cookies.get('token');
+
+                    // If we have the token in memory, assert it valid
+                    if (this.auth.token) {
+                        defer.resolve(true);
+                    } else {
+                        // Else, we check this token in server
+                        $timeout(function () {
+                            defer.resolve(token);
+                        }, 0);
+                    }
+
+                    return defer.promise;
+                }
+                function setAuth (token, expr) {
+                    var exp = new Date();
+                    this.auth.token = token;
+                    this.auth.expr = expr;
+                    exp.setSeconds(exp.getSeconds() + Number(expr));
+                    $cookies.put('token', JSON.stringify(this.auth), {path: '/', expires: exp});
                 }
                 function delAuth () {
-                    $window.localStorage.removeItem(this.authKey);
+                    $cookies.remove('token');
+                    this.auth.token = null;
+                    this.auth.expr = null;
+                }
+                function expAuth () {
+                    var exp = new Date();
+                    exp.setSeconds(exp.getSeconds() + Number(this.token.expr));
+                    $cookies.put('token', JSON.stringify(this.auth), {path: '/', expires: exp});
                 }
             }])
         ;
