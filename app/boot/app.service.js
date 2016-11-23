@@ -5,13 +5,24 @@ define(
     ],
     function (angular) {
         angular.module('app.service', [])
-            .factory('Users', function () {
-                var Users = {};
+            .service('UserService', [function () {
+                this.user = new User();
 
-                Users.all = function () {};
+                this.getUser = getUser;
+                this.setUser = setUser;
 
-                return Users;
-            })
+                function User () {
+                    this.username = '';
+                    this.password = '';
+                }
+                function getUser () {
+                    return this.user;
+                }
+                function setUser (username, password) {
+                    this.user.username = username;
+                    this.user.password = password;
+                }
+            }])
         ;
     }
 );

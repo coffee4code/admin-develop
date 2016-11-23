@@ -26,15 +26,19 @@
                 </div>
             </div>
             <div class="form-actions">
-                <button hb-btn-busy is-busy="isBusy" reset-text="{{ ::LANG.BUTTON.LOGIN }}" ng-click="onLogin();" ng-disabled="loginForm.$invalid" type="button" class="btn red btn-block uppercase"></button>
+                <button hb-btn-busy is-busy="current.isBusy" reset-text="{{ ::LANG.BUTTON.LOGIN }}" ng-click="onSignIn();" ng-disabled="loginForm.$invalid" type="button" class="btn red btn-block uppercase"></button>
             </div>
             <div class="alert alert-danger ng-hide" ng-show="(loginForm.username.$dirty && loginForm.username.$error.minlength) || (loginForm.password.$dirty && loginForm.password.$error.minlength)">
                 <button class="close" data-close="alert"></button>
                 <span>{{::LANG.ALERT.ENTER_USERNAME_OR_PASSWORD}}</span>
             </div>
-            <div class="alert alert-danger ng-hide">
+            <div class="alert alert-danger ng-hide" ng-show="current.erCode == 1">
                 <button class="close" data-close="alert"></button>
                 <span>{{::LANG.ALERT.USERNAME_OR_PASSWORD_NOT_CORRECT}}</span>
+            </div>
+            <div class="alert alert-danger ng-hide" ng-show="current.erCode == 2">
+                <button class="close" data-close="alert"></button>
+                <span>{{::LANG.ALERT.SERVER_INTERNAL_ERROR}}</span>
             </div>
         </form>
         <!-- END LOGIN FORM -->

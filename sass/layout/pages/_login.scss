@@ -80,8 +80,6 @@ $bg-color: #5c97bd;
 	&:active {
 		border: 1px solid #83b8db;
 	}
-
-	@include placeholder(#d9ecf9);
 }
 
 .login .content .form-actions {

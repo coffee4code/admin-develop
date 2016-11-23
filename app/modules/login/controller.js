@@ -8,22 +8,34 @@ define(
         angular.module('login.controller', ['login.service'])
             .controller('loginCtrl', [
                 '$scope',
-                'LoginService',
-                function ($scope, LoginService) {
-                    $scope.isBusy = false;
-                    $scope.user = {
-                        username: '',
-                        password: ''
+                '$state',
+                'UserService',
+                'SignService',
+                function ($scope, $state, UserService, SignService) {
+                    $scope.current = {
+                        isBusy: false,
+                        erCode: 0
                     };
-                    $scope.onLogin = onLogin;
+                    $scope.user = UserService.getUser();
+                    $scope.onSignIn = onSignIn;
 
-                    function onLogin () {
-                        $scope.isBusy = true;
-                        LoginService.login('u', 'p').then(function () {
-                            $scope.isBusy = false;
-                        }, function () {
-                            $scope.isBusy = false;
-                        });
+                    function onSignIn () {
+                        $scope.current.isBusy = true;
+                        SignService
+                            .signIn($scope.user)
+                            .then(function (res) {
+                                if (res) {
+                                    $state.go('db.welcome');
+                                    return false;
+                                }
+                                $scope.current.erCode = 1;
+                            }, function () {
+                                $scope.current.erCode = 2;
+                            })
+                            .finally(function () {
+                                $scope.current.isBusy = false;
+                            })
+                        ;
                     }
                 }
             ]);

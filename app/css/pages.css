@@ -73,19 +73,6 @@ Login page
   border: 1px solid #83b8db;
 }
 
-.login .content .form-control::-moz-placeholder {
-  color: #d9ecf9;
-  opacity: 1;
-}
-
-.login .content .form-control:-ms-input-placeholder {
-  color: #d9ecf9;
-}
-
-.login .content .form-control::-webkit-input-placeholder {
-  color: #d9ecf9;
-}
-
 .login .content .form-actions {
   margin-bottom: 15px;
 }
