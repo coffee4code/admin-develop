@@ -31,6 +31,20 @@ UI Loading
     }
 }
 
+.page-loading-transparent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 125px;
+    margin-left: -60px;
+    margin-top: -30px;
+    padding: 7px;
+    text-align: center;
+    color: #333;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
 .page-loading {
     @include border-radius($general-border-radius);
 

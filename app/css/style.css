@@ -16,7 +16,7 @@
   top: 2px;
   width: 15px;
   height: 15px;
-  border-radius: 100%;
+  border-radius: 100% !important;
   border: 3px solid rgba(255, 255, 255, 0.35);
   border-top-color: #fff;
   animation: spin 1s infinite linear;
@@ -34,7 +34,7 @@
   top: 2px;
   width: 15px;
   height: 15px;
-  border-radius: 100%;
+  border-radius: 100% !important;
   border: 3px solid rgba(255, 255, 255, 0.35);
   border-top-color: #fff;
   animation: spin 1s infinite linear;
@@ -52,7 +52,7 @@
   top: 2px;
   width: 15px;
   height: 15px;
-  border-radius: 100%;
+  border-radius: 100% !important;
   border: 3px solid rgba(255, 255, 255, 0.35);
   border-top-color: #fff;
   animation: spin 1s infinite linear;

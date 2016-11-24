@@ -10,7 +10,7 @@
 			top: 2px;
 			width: 15px;
 			height: 15px;
-			border-radius: 100%;
+			border-radius: 100% !important;
 			border: 3px solid $border-bg;
 			border-top-color: $border-part;
 			animation: spin 1s infinite linear;

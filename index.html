@@ -33,6 +33,8 @@
 
     <link rel="stylesheet" href="app/plugins/bootstrap/css/bootstrap.css">
 
+    <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.css">
+
     <link rel="stylesheet" href="app/css/components.css">
     <link rel="stylesheet" href="app/css/plugins.css">
     <link rel="stylesheet" href="app/css/layout.css">
@@ -44,8 +46,14 @@
 <body>
 
     <hb-page-instance page-instance="current.pageInstance" page-id="loading" page-wrapper="" style="display: block;">
-        <div class="loading">
-            loading...
+        <div class="page-loading-transparent">
+            <div class="loading-message">
+                <div class="block-spinner-bar">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
         </div>
     </hb-page-instance>
 
@@ -65,10 +73,10 @@
                         <div ui-view="content"></div>
                     </div>
                 </div>
+                <div ui-view="sidebar"></div>
                 <!-- END CONTENT -->
             </div>
             <!-- END CONTAINER -->
-            <div ui-view="sidebar"></div>
         </div>
     </hb-page-instance>
 

@@ -19,24 +19,26 @@
                 </div>
                 <!-- END SIDEBAR TOGGLER BUTTON -->
             </li>
-            <li hb-sub-menu-toggler class="start ">
+            <li hb-sub-menu-toggler class="start open active">
                 <a href="javascript:;">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
-                    <span class="arrow "></span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="index.html">
+                <ul class="sub-menu" style="display: block;">
+                    <li hb-sub-menu-item class="active">
+                        <a href="javascript:;" ui-sref="db.welcome">
                             <i class="icon-bar-chart"></i>
-                            Default Dashboard</a>
+                            Default Dashboard
+                        </a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="index_2.html">
                             <i class="icon-bulb"></i>
                             New Dashboard #1</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="index_3.html">
                             <i class="icon-graph"></i>
                             New Dashboard #2</a>
@@ -47,30 +49,31 @@
                 <a href="javascript:;">
                     <i class="icon-basket"></i>
                     <span class="title">eCommerce</span>
-                    <span class="arrow "></span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="ecommerce_index.html">
                             <i class="icon-home"></i>
                             Dashboard</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="ecommerce_orders.html">
                             <i class="icon-basket"></i>
                             Orders</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="ecommerce_orders_view.html">
                             <i class="icon-tag"></i>
                             Order View</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="ecommerce_products.html">
                             <i class="icon-handbag"></i>
                             Products</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="ecommerce_products_edit.html">
                             <i class="icon-pencil"></i>
                             Product Edit</a>
@@ -85,19 +88,19 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="quick_sidebar_push_content.html">
                             Push Content</a>
                     </li>
-                    <li class="active">
+                    <li hb-sub-menu-item>
                         <a href="quick_sidebar_over_content.html">
                             Over Content</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="quick_sidebar_over_content_transparent.html">
                             Over Content & Transparent</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="quick_sidebar_on_boxed_layout.html">
                             Boxed Layout</a>
                     </li>
@@ -107,14 +110,15 @@
                 <a href="javascript:;">
                     <i class="icon-pointer"></i>
                     <span class="title">Maps</span>
-                    <span class="arrow "></span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="maps_google.html">
                             Google Maps</a>
                     </li>
-                    <li>
+                    <li hb-sub-menu-item>
                         <a href="maps_vector.html">
                             Vector Maps</a>
                     </li>
