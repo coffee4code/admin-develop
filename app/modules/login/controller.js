@@ -10,6 +10,7 @@ define(
                 '$state',
                 'SignService',
                 function ($scope, $state, SignService) {
+                    $scope.current.pageInstance = 'login';
                     $scope.current = {
                         isBusy: false,
                         erCode: 0

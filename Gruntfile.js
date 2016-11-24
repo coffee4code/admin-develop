@@ -11,6 +11,7 @@ module.exports = function (grunt) {
                     'app/css/components.css': 'sass/global/components.scss',
                     'app/css/plugins.css': 'sass/global/plugins.scss',
                     'app/css/layout.css': 'sass/layout/layout.scss',
+                    'app/css/theme.css': 'sass/layout/theme.scss',
                     'app/css/pages.css': 'sass/layout/pages.scss',
                     'app/css/style.css': 'sass/style/style.scss'
                 }
@@ -25,6 +26,7 @@ module.exports = function (grunt) {
                     'app/css/components.min.css': 'sass/global/components.scss',
                     'app/css/plugins.min.css': 'sass/global/plugins.scss',
                     'app/css/layout.min.css': 'sass/layout/layout.scss',
+                    'app/css/theme.min.css': 'sass/layout/theme.scss',
                     'app/css/pages.min.css': 'sass/layout/pages.scss',
                     'app/css/style.min.css': 'sass/style/style.scss'
                 }

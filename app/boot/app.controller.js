@@ -7,8 +7,11 @@ define(
         angular.module('app.controller', [])
             .controller('appCtrl', [
                 '$rootScope',
-                function ($rootScope) {
-                    $rootScope.run = 'run';
+                '$scope',
+                function ($rootScope, $scope) {
+                    $scope.current = {
+                        pageInstance: 'loading'
+                    };
                 }
             ])
         ;

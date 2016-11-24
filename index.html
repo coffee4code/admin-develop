@@ -28,18 +28,50 @@
     <meta name="distribution" content="private">
     <meta name="rating" content="General">
 
-    <link rel="stylesheet" href="app/fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="app/css/components.css">
+    <link rel="stylesheet" href="app/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/fonts/simple-line-icons/simple-line-icons.min.css">
+
     <link rel="stylesheet" href="app/plugins/bootstrap/css/bootstrap.css">
+
+    <link rel="stylesheet" href="app/css/components.css">
     <link rel="stylesheet" href="app/css/plugins.css">
     <link rel="stylesheet" href="app/css/layout.css">
+    <link rel="stylesheet" href="app/css/theme.css">
     <link rel="stylesheet" href="app/css/pages.css">
     <link rel="stylesheet" href="app/css/style.css">
 
 </head>
 <body>
 
-<div ui-view="vw"></div>
+    <hb-page-instance page-instance="current.pageInstance" page-id="loading" page-wrapper="" style="display: block;">
+        <div class="loading">
+            loading...
+        </div>
+    </hb-page-instance>
+
+    <hb-page-instance page-instance="current.pageInstance" page-id="login" page-wrapper="" style="display: none;">
+        <div ui-view="login"></div>
+    </hb-page-instance>
+
+    <hb-page-instance page-instance="current.pageInstance" page-id="dashboard" page-wrapper="page-header-fixed page-quick-sidebar-over-content page-quick-sidebar-over-content-transparent" style="display: none;">
+        <div class="page-dashboard">
+            <div ui-view="header"></div>
+            <!-- END CONTAINER -->
+            <div class="page-container">
+                <div ui-view="menu"></div>
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <div hb-page-full-height offset="46" min="600" class="page-content">
+                        <div ui-view="content"></div>
+                    </div>
+                </div>
+                <!-- END CONTENT -->
+            </div>
+            <!-- END CONTAINER -->
+            <div ui-view="sidebar"></div>
+        </div>
+    </hb-page-instance>
+
 
 <script data-main="app/main" src="bower_components/requirejs/require.js"></script>
 </body>

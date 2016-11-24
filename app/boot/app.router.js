@@ -33,24 +33,24 @@ define(
                         .state('login', {
                             url: '/login',
                             views: {
-                                vw: {
+                                login: {
                                     lazyModule: 'modules.login',
                                     lazyFiles: 'app/modules/login/module',
                                     lazyTemplateUrl: 'app/modules/login/template.html',
-                                    controller: 'loginCtrl',
-                                    resolve: {
-                                        auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                            return AuthService
-                                                .checkAuth()
-                                                .then(function (tokenValid) {
-                                                    if (tokenValid) {
-                                                        $state.go('db.welcome');
-                                                        return false;
-                                                    }
-                                                });
-                                        }]
-                                    }
+                                    controller: 'loginCtrl'
                                 }
+                            },
+                            resolve: {
+                                auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
+                                    return AuthService
+                                        .checkAuth()
+                                        .then(function (tokenValid) {
+                                            if (tokenValid) {
+                                                $state.go('db.welcome');
+                                                return false;
+                                            }
+                                        });
+                                }]
                             }
                         })
 
@@ -58,31 +58,49 @@ define(
                             url: '/dashboard',
                             abstract: true,
                             views: {
-                                vw: {
+                                header: {
                                     lazyModule: 'modules.db',
                                     lazyFiles: 'app/modules/db/module',
-                                    lazyTemplateUrl: 'app/modules/db/template.html',
-                                    controller: 'dbCtrl',
-                                    resolve: {
-                                        auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                            return AuthService
-                                                .checkAuth()
-                                                .then(function (tokenValid) {
-                                                    if (!tokenValid) {
-                                                        $state.go('login');
-                                                        return false;
-                                                    }
-                                                });
-                                        }]
-                                    }
+                                    lazyTemplateUrl: 'app/modules/db/template-header.html',
+                                    controller: 'dbHeaderCtrl'
+                                },
+                                menu: {
+                                    lazyModule: 'modules.db',
+                                    lazyFiles: 'app/modules/db/module',
+                                    lazyTemplateUrl: 'app/modules/db/template-menu.html',
+                                    controller: 'dbMenuCtrl'
+                                },
+                                sidebar: {
+                                    lazyModule: 'modules.db',
+                                    lazyFiles: 'app/modules/db/module',
+                                    lazyTemplateUrl: 'app/modules/db/template-sidebar.html',
+                                    controller: 'dbSidebarCtrl'
+                                },
+                                content: {
+                                    lazyModule: 'modules.db',
+                                    lazyFiles: 'app/modules/db/module',
+                                    lazyTemplateUrl: 'app/modules/db/template-body.html',
+                                    controller: 'dbBodyCtrl'
                                 }
+                            },
+                            resolve: {
+                                auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
+                                    return AuthService
+                                        .checkAuth()
+                                        .then(function (tokenValid) {
+                                            if (!tokenValid) {
+                                                $state.go('login');
+                                                return false;
+                                            }
+                                        });
+                                }]
                             }
                         })
 
                         .state('db.welcome', {
                             url: '',
                             views: {
-                                vw1: {
+                                content: {
                                     lazyModule: 'modules.db.welcome',
                                     lazyFiles: 'app/modules/db.welcome/module',
                                     lazyTemplateUrl: 'app/modules/db.welcome/template.html',

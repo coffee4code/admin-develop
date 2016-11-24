@@ -386,6 +386,7 @@ Page sidebar
 		&.page-sidebar-fixed .page-sidebar-wrapper {
 			position: relative;
 			float: right;
+			top: $header-height;
 		}
 	}
 

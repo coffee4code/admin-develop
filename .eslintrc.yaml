@@ -214,8 +214,7 @@ rules:
     - 2
     - always
   operator-assignment:
-    - 2
-    - always
+    - 0
   operator-linebreak:
     - 2
     - after

@@ -84,7 +84,8 @@ Page Header
 }
 
 .page-header.navbar .page-logo .logo-default {
-  margin: 16px 0 0 0;
+  height: 30px;
+  margin: 8px 0 0 0;
 }
 
 .page-header.navbar .page-logo .logo-mini {
@@ -245,7 +246,6 @@ Page Header
 }
 
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-menu {
-  margin-top: 3px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1422,6 +1422,7 @@ Page sidebar
   .page-sidebar-reversed.page-sidebar-fixed .page-sidebar-wrapper {
     position: relative;
     float: right;
+    top: 46px;
   }
   .page-sidebar-fixed .page-sidebar {
     position: fixed !important;

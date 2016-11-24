@@ -5,12 +5,14 @@ define(
     ],
     function (angular) {
         angular.module('db.controller', [])
-            .controller('dbCtrl', [
+            .controller('dbHeaderCtrl', [
                 '$scope',
                 '$window',
                 'SignService',
                 'UserService',
                 function ($scope, $window, SignService, UserService) {
+                    console.info('dbHeaderCtrl');
+                    $scope.current.pageInstance = 'dashboard';
                     $scope.onSignOut = onSignOut;
                     $scope.onInitUser = onInitUser;
 
@@ -27,6 +29,27 @@ define(
                             })
                         ;
                     }
+                }
+            ])
+            .controller('dbMenuCtrl', [
+                '$scope',
+                '$window',
+                function ($scope) {
+                    console.info($scope, 'dbMenuCtrl');
+                }
+            ])
+            .controller('dbSidebarCtrl', [
+                '$scope',
+                '$window',
+                function ($scope) {
+                    console.info($scope, 'dbSidebarCtrl');
+                }
+            ])
+            .controller('dbBodyCtrl', [
+                '$scope',
+                '$window',
+                function ($scope) {
+                    console.info($scope, 'dbBodyCtrl');
                 }
             ])
         ;
