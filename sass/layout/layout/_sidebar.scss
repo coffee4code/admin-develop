@@ -282,8 +282,7 @@ Page sidebar
 		filter: alpha(opacity=70);
 		width: 30px;
 		height: 27px;
-		margin-top: 15px;
-		margin-right: 19px;
+		margin: 10px 19px 10px 0;
 		float: right;
 
 		@include border-radius($general-border-radius);  
