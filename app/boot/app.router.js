@@ -100,7 +100,7 @@ define(
                         .state('db.welcome', {
                             url: '',
                             views: {
-                                content: {
+                                page: {
                                     lazyModule: 'modules.db.welcome',
                                     lazyFiles: 'app/modules/db.welcome/module',
                                     lazyTemplateUrl: 'app/modules/db.welcome/template.html',
