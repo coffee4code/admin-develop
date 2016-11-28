@@ -22,8 +22,35 @@ define(
             'app.controller',
             'app.service'
         ])
-            .run([function () {
+            .run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
+                $rootScope.$on('$stateChangeStart', function (event, toState) {
+                    checkRole();
 
+                    function checkRole () {
+                        var role = toState.data.role;
+                        AuthService
+                            .checkAuth()
+                            .then(function (tokenValid) {
+                                switch (role) {
+                                    case 'no-login':
+                                        if (tokenValid) {
+                                            $state.go('db.welcome');
+                                            return false;
+                                        }
+                                        break;
+                                    case 'admin':
+                                        if (!tokenValid) {
+                                            $state.go('login');
+                                            return false;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            })
+                        ;
+                    }
+                });
             }]);
 
         application.bootstrap = function () {

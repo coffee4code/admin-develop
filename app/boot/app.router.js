@@ -40,17 +40,8 @@ define(
                                     controller: 'loginCtrl'
                                 }
                             },
-                            resolve: {
-                                auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                    return AuthService
-                                        .checkAuth()
-                                        .then(function (tokenValid) {
-                                            if (tokenValid) {
-                                                $state.go('db.welcome');
-                                                return false;
-                                            }
-                                        });
-                                }]
+                            data: {
+                                role: 'no-login'
                             }
                         })
 
@@ -83,17 +74,8 @@ define(
                                     controller: 'dbBodyCtrl'
                                 }
                             },
-                            resolve: {
-                                auth: ['$q', '$state', '$timeout', 'AuthService', function ($q, $state, $timeout, AuthService) {
-                                    return AuthService
-                                        .checkAuth()
-                                        .then(function (tokenValid) {
-                                            if (!tokenValid) {
-                                                $state.go('login');
-                                                return false;
-                                            }
-                                        });
-                                }]
+                            data: {
+                                role: 'admin'
                             }
                         })
 
