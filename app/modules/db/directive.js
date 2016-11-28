@@ -28,7 +28,6 @@ define(
                             }
                         });
                         $(document).unbind('click').bind('click', function (e) {
-                            alert('ts')
                             var $trigger = $('li.dropdown');
                             if ($trigger !== e.target && !$trigger.has(e.target).length) {
                                 $trigger.removeClass('open');

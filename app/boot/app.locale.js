@@ -11,15 +11,37 @@ define(
         angular.module('app.locale', [])
             .run([
                 '$rootScope',
-                function ($rootScope) {
+                'LocaleService',
+                function ($rootScope, LocaleService) {
                     $rootScope.LANG = {
-                        META: meta,
-                        BUTTON: button,
-                        PLACEHOLDER: placeholder,
-                        ALERT: alert
+                        META: LocaleService.getMeta(),
+                        BUTTON: LocaleService.getButton(),
+                        PLACEHOLDER: LocaleService.getPlaceholder(),
+                        ALERT: LocaleService.getAlert()
                     };
                 }
             ])
+            .service('LocaleService', [function () {
+                return {
+                    getMeta: getMeta,
+                    getButton: getButton,
+                    getPlaceholder: getPlaceholder,
+                    getAlert: getAlert
+                };
+
+                function getMeta () {
+                    return meta;
+                }
+                function getButton () {
+                    return button;
+                }
+                function getPlaceholder () {
+                    return placeholder;
+                }
+                function getAlert () {
+                    return alert;
+                }
+            }])
         ;
     }
 );
