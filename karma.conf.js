@@ -23,6 +23,7 @@ module.exports = function (config) {
             {pattern: 'bower_components/ui-router/release/angular-ui-router.js', included: false},
             {pattern: 'bower_components/ocLazyLoad/dist/ocLazyLoad.js', included: false},
             {pattern: 'bower_components/angular-cookies/angular-cookies.js', included: false},
+            {pattern: 'bower_components/angular-breadcrumb/dist/angular-breadcrumb.js', included: false},
             {pattern: 'app/**/*.js', included: false},
             {pattern: 'test/**/*.spec.js', included: false}
         ],

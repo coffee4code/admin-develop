@@ -25,6 +25,29 @@ define(
                     }
                 };
             }])
+            .directive('hbUpdateTitle', ['LocaleService', function (LocaleService) {
+                return {
+                    restrict: 'E',
+                    scope: {
+                        title: '@',
+                        mainTitle: '@'
+                    },
+                    link: function (scope) {
+                        var appName = LocaleService.getMeta().TITLE;
+                        scope.$watch('title', function (newValue) {
+                            if (typeof newValue !== 'undefined') {
+                                if (document) {
+                                    if (!newValue) {
+                                        document.title = appName;
+                                        return false;
+                                    }
+                                    document.title = (newValue === appName ? '' : appName + ' | ') + (scope.mainTitle ? scope.mainTitle + '-' : '') + newValue;
+                                }
+                            }
+                        });
+                    }
+                };
+            }])
             .directive('hbPageFullHeight', ['$timeout', function ($timeout) {
                 return {
                     restrice: 'EA',

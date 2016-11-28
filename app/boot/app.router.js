@@ -19,7 +19,10 @@ define(
                 '$locationProvider',
                 function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
                     $locationProvider.hashPrefix('!');
-                    $locationProvider.html5Mode(true);
+                    $locationProvider.html5Mode({
+                        enabled: true,
+                        requireBase: false
+                    });
 
                     $ocLazyLoadProvider.config({
                         loadedModules: ['app'],
@@ -88,6 +91,9 @@ define(
                                     lazyTemplateUrl: 'app/modules/db.welcome/template.html',
                                     controller: 'dbWelcomeCtrl'
                                 }
+                            },
+                            ncyBreadcrumb: {
+                                label: 'menu.DASHBOARD_WELCOME'
                             }
                         })
                     ;

@@ -30,6 +30,7 @@ require.config({
         ocLazyLoad: 'bower_components/ocLazyLoad/dist/ocLazyLoad',
 
         ngCookies: 'bower_components/angular-cookies/angular-cookies',
+        ngBreadcrumb: 'bower_components/angular-breadcrumb/dist/angular-breadcrumb',
 
         decorator: 'app/boot/app.decorator',
         constant: 'app/boot/app.constant',
@@ -67,6 +68,10 @@ require.config({
         ngCookies: {
             deps: ['angular'],
             exports: 'ngCookies'
+        },
+        ngBreadcrumb: {
+            deps: ['angular', 'uiRouter'],
+            exports: 'ngBreadcrumb'
         },
         decorator: {
             exports: 'decorator'

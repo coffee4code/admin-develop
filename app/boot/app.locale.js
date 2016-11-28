@@ -5,9 +5,10 @@ define(
         'app/plugins/requirejs/i18n!app/nls/meta',
         'app/plugins/requirejs/i18n!app/nls/button',
         'app/plugins/requirejs/i18n!app/nls/placeholder',
-        'app/plugins/requirejs/i18n!app/nls/alert'
+        'app/plugins/requirejs/i18n!app/nls/alert',
+        'app/plugins/requirejs/i18n!app/nls/menu'
     ],
-    function (angular, meta, button, placeholder, alert) {
+    function (angular, meta, button, placeholder, alert, menu) {
         angular.module('app.locale', [])
             .run([
                 '$rootScope',
@@ -17,7 +18,8 @@ define(
                         META: LocaleService.getMeta(),
                         BUTTON: LocaleService.getButton(),
                         PLACEHOLDER: LocaleService.getPlaceholder(),
-                        ALERT: LocaleService.getAlert()
+                        ALERT: LocaleService.getAlert(),
+                        MENU: LocaleService.getMenu()
                     };
                 }
             ])
@@ -26,7 +28,8 @@ define(
                     getMeta: getMeta,
                     getButton: getButton,
                     getPlaceholder: getPlaceholder,
-                    getAlert: getAlert
+                    getAlert: getAlert,
+                    getMenu: getMenu
                 };
 
                 function getMeta () {
@@ -40,6 +43,9 @@ define(
                 }
                 function getAlert () {
                     return alert;
+                }
+                function getMenu () {
+                    return menu;
                 }
             }])
         ;

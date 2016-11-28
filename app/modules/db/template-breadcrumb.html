@@ -1,0 +1,11 @@
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li ng-repeat="step in steps" ng-switch="$last || !!step.abstract" ng-class="{active: $last}" class="ms-hover">
+            <i class="fa fa-home" ng-if="$first"></i>
+            <a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel | translate}}</a>
+            <span ng-switch-when="true">{{step.ncyBreadcrumbLabel | translate}}</span>
+            <i class="fa fa-angle-right" ng-hide="$last"></i>
+        </li>
+    </ul>
+    <hb-update-title title="{{steps[steps.length-1].ncyBreadcrumbLabel | translate}}"></hb-update-title>
+</div>
