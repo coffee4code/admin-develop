@@ -12,6 +12,7 @@ require.config({
 
         ngCookies: '../bower_components/angular-cookies/angular-cookies',
         ngBreadcrumb: '../bower_components/angular-breadcrumb/dist/angular-breadcrumb',
+        blockUI: '../bower_components/angular-block-ui/dist/angular-block-ui',
 
         decorator: '../app/boot/app.decorator',
         constant: '../app/boot/app.constant',
@@ -49,6 +50,10 @@ require.config({
         ngBreadcrumb: {
             deps: ['angular', 'uiRouter'],
             exports: 'ngBreadcrumb'
+        },
+        blockUI: {
+            deps: ['angular'],
+            exports: 'blockUI'
         },
         decorator: {
             exports: 'decorator'

@@ -131,7 +131,8 @@ define(
                         color: '@'
                     },
                     template: '' +
-                    '<div class="portlet box" ng-class="color" ng-transclude>' +
+                    '<div block-ui="main">' +
+                    '   <div class="portlet box" ng-class="color" ng-transclude></div>' +
                     '</div>'
                 };
             }])
@@ -141,7 +142,8 @@ define(
                     replace: true,
                     transclude: true,
                     template: '' +
-                    '<div class="portlet-body" ng-transclude>' +
+                    '<div class="portlet-body">' +
+                    '   <div ng-transclude></div>' +
                     '</div>'
                 };
             }])
@@ -244,7 +246,7 @@ define(
                     }
                 };
             }])
-            .directive('hbPortletHeaderReload', [function () {
+            .directive('hbPortletHeaderReload', ['blockUI', function (blockUI) {
                 return {
                     restrict: 'EAC',
                     replace: true,
@@ -255,7 +257,11 @@ define(
                         $scope.reload = reload;
 
                         function reload () {
-                            $portletBody.empty();
+                            if (blockUI.isBlocking()) {
+                                blockUI.stop();
+                            } else {
+                                blockUI.start();
+                            }
                         }
                     }
                 };
