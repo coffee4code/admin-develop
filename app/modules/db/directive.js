@@ -22,12 +22,15 @@ define(
                     link: function ($scope, $element) {
                         var $siblings = $element.siblings('li.dropdown');
                         $element.bind({
-                            mouseenter: function () {
+                            click: function () {
                                 $siblings.removeClass('open');
                                 $element.toggleClass('open');
-                            },
-                            mouseleave: function () {
-                                $element.toggleClass('open');
+                            }
+                        });
+                        $(document).on('click', function (e) {
+                            var $trigger = $('li.dropdown');
+                            if ($trigger !== e.target && !$trigger.has(e.target).length) {
+                                $trigger.removeClass('open');
                             }
                         });
                     }
