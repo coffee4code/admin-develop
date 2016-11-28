@@ -27,7 +27,8 @@ define(
                                 $element.toggleClass('open');
                             }
                         });
-                        $(document).on('click', function (e) {
+                        $(document).unbind('click').bind('click', function (e) {
+                            alert('ts')
                             var $trigger = $('li.dropdown');
                             if ($trigger !== e.target && !$trigger.has(e.target).length) {
                                 $trigger.removeClass('open');
