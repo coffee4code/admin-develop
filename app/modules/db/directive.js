@@ -92,22 +92,22 @@ define(
                     }
                 };
             }])
-            .directive('tabHeader', [function () {
+            .directive('hbTabHeader', [function () {
                 return {
                     restrict: 'EAC',
                     scope: {
                         tabTargetId: '@'
                     },
                     link: function ($scope, $element) {
-                        var $siblings = $element.siblings('[tab-header]'),
-                            $siblingsGroup = $element.siblings('[tab-header-group]'),
+                        var $siblings = $element.siblings('[hb-tab-header]'),
+                            $siblingsGroup = $element.siblings('[hb-tab-header-group]'),
                             $target = $('#' + $scope.tabTargetId),
                             $targetSiblings = $target.siblings('[tab-body]'),
-                            $parentGroup = $element.closest('[tab-header-group]'),
-                            $parentGroupSiblings = $parentGroup.siblings('[tab-header]');
+                            $parentGroup = $element.closest('[hb-tab-header-group]'),
+                            $parentGroupSiblings = $parentGroup.siblings('[hb-tab-header]');
                         $element.bind('click', function () {
-                            if ($element.closest('[tab-header-group]').length) {
-                                $element.closest('[tab-header-group]').addClass('active');
+                            if ($element.closest('[hb-tab-header-group]').length) {
+                                $element.closest('[hb-tab-header-group]').addClass('active');
                                 $parentGroupSiblings.removeClass('active');
                             } else {
                                 $siblings.removeClass('active');
