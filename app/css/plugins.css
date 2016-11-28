@@ -520,7 +520,7 @@ Toastr Notifications
   width: 11px;
   height: 16px;
   background-repeat: no-repeat !important;
-  background-image: url("../img/portlet-remove-icon-white.png") !important;
+  background-image: url("../images/theme/portlet-remove-icon-white.png") !important;
 }
 
 .toast-top-center {
@@ -954,11 +954,11 @@ Datatables Plugin(in v1.3)
 }
 
 .dataTable .row-details.row-details-close {
-  background: url("../img/datatable-row-openclose.png") no-repeat 0 0;
+  background: url("../images/theme/datatable-row-openclose.png") no-repeat 0 0;
 }
 
 .dataTable .row-details.row-details-open {
-  background: url("../img/datatable-row-openclose.png") no-repeat 0 -23px;
+  background: url("../images/theme/datatable-row-openclose.png") no-repeat 0 -23px;
 }
 
 .dataTable .details {
@@ -1619,7 +1619,7 @@ Dashboard Charts(new in v1.2.1)
 jQuery File Upload
 ***/
 .blueimp-gallery .close {
-  background-image: url("../img/portlet-remove-icon-white.png") !important;
+  background-image: url("../images/theme/portlet-remove-icon-white.png") !important;
   margin-top: -2px;
 }
 

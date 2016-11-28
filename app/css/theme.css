@@ -206,7 +206,7 @@
 }
 
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar_toggler_icon_blue.png);
+  background-image: url(../images/theme/sidebar_toggler_icon_blue.png);
 }
 
 /* Default Horizontal Menu */
@@ -1290,7 +1290,7 @@ body {
 }
 
 .page-header.navbar .menu-toggler {
-  background-image: url(../../img/sidebar_toggler_icon_blue.png);
+  background-image: url(../images/theme/sidebar_toggler_icon_blue.png);
 }
 
 /* Default Horizontal Menu */

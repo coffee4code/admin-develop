@@ -123,6 +123,143 @@ define(
                     }
                 };
             }])
+            .directive('hbPortlet', [function () {
+                return {
+                    restrict: 'EAC',
+                    transclude: true,
+                    scope: {
+                        color: '@'
+                    },
+                    template: '' +
+                    '<div class="portlet box" ng-class="color" ng-transclude>' +
+                    '</div>'
+                };
+            }])
+            .directive('hbPortletBody', [function () {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    transclude: true,
+                    template: '' +
+                    '<div class="portlet-body" ng-transclude>' +
+                    '</div>'
+                };
+            }])
+            .directive('hbPortletHeader', [function () {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    scope: {
+                        title: '@'
+                    },
+                    template: '' +
+                        '<div class="portlet-title">' +
+                        '   <div class="caption">' +
+                        '       <i class="fa fa-gift"></i>' +
+                        '       {{title}}' +
+                        '   </div>' +
+                        '   <div class="tools">' +
+                        '       <hb-portlet-header-collapse></hb-portlet-header-collapse>' +
+                        '       <hb-portlet-header-reload></hb-portlet-header-reload>' +
+                        '       <hb-portlet-header-full-screen></hb-portlet-header-full-screen>' +
+                        '       <hb-portlet-header-close></hb-portlet-header-close>' +
+                        '   </div>' +
+                        '</div>',
+                    link: function () {
+                    }
+                };
+            }])
+            .directive('hbPortletHeaderCollapse', [function () {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    require: '?^hbPortletHeader',
+                    template: '<a href="javascript:;" class="collapse" ng-click="collapseBody();" data-original-title="" title=""></a>',
+                    link: function ($scope, $element) {
+                        $scope.collapseBody = collapseBody;
+
+                        function collapseBody () {
+                            $element.toggleClass('collapse expand');
+                            $element.closest('.portlet-title').siblings('.portlet-body').slideToggle();
+                        }
+                    }
+                };
+            }])
+            .directive('hbPortletHeaderFullScreen', ['$timeout', function ($timeout) {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    require: '?^hbPortlet',
+                    template: '<a href="javascript:;" class="fullscreen" ng-click="fullScreen();" data-original-title="" title=""></a>',
+                    link: function ($scope, $element) {
+                        var timer = null,
+                            $portlet = $element.closest('.portlet'),
+                            $portletBody = $element.closest('.portlet').find('.portlet-body');
+                        $scope.fullScreen = fullScreen;
+
+                        function fullScreen () {
+                            $element.toggleClass('on');
+                            if ($portlet.hasClass('portlet-fullscreen')) {
+                                $portlet.removeClass('portlet-fullscreen');
+                                removeMinHeight();
+                                return;
+                            }
+                            $portlet.addClass('portlet-fullscreen');
+                            setMinHeight();
+                        }
+                        function setMinHeight () {
+                            var height = $(window).innerHeight();
+                            $portletBody.css('min-height', (height - 41) + 'px');
+                        }
+                        function removeMinHeight () {
+                            $portletBody.css('min-height', 'auto');
+                        }
+
+                        $(window).bind('resize', function () {
+                            if (timer) {
+                                $timeout.cancel(timer);
+                            }
+                            timer = $timeout(function () {
+                                if ($portlet.hasClass('portlet-fullscreen')) {
+                                    setMinHeight();
+                                }
+                            }, 200);
+                        });
+                    }
+                };
+            }])
+            .directive('hbPortletHeaderClose', [function () {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    require: '?^hbPortlet',
+                    template: '<a href="javascript:;" class="remove" ng-click="close();" data-original-title="" title=""></a>',
+                    link: function ($scope, $element) {
+                        var $portlet = $element.closest('.portlet');
+                        $scope.close = close;
+
+                        function close () {
+                            $portlet.remove();
+                        }
+                    }
+                };
+            }])
+            .directive('hbPortletHeaderReload', [function () {
+                return {
+                    restrict: 'EAC',
+                    replace: true,
+                    require: '?^hbPortletHeader',
+                    template: '<a href="javascript:;" class="reload" ng-click="reload();" data-original-title="" title=""></a>',
+                    link: function ($scope, $element) {
+                        var $portletBody = $element.closest('.portlet').find('.portlet-body');
+                        $scope.reload = reload;
+
+                        function reload () {
+                            $portletBody.empty();
+                        }
+                    }
+                };
+            }])
         ;
     }
 );
