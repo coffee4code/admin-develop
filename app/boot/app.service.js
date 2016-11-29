@@ -117,7 +117,7 @@ define(
                     $cookies.put('token', JSON.stringify(this.auth), {path: '/', expires: exp});
                 }
             }])
-            .service('timestampService', [function () {
+            .service('TimestampService', [function () {
                 this.request = request;
                 this.response = response;
 
@@ -183,6 +183,19 @@ define(
                     // }
                     // otherwise, default behaviour
                     return $q.reject(rejection);
+                }
+            }])
+            .service('UtilService', [function () {
+                this.guid = guid;
+
+                function guid () {
+                    function s4 () {
+                        return Math.floor((1 + Math.random()) * 0x10000)
+                            .toString(16)
+                            .substring(1);
+                    }
+                    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                        s4() + '-' + s4() + s4() + s4();
                 }
             }])
         ;

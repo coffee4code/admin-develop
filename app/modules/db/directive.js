@@ -123,17 +123,41 @@ define(
                     }
                 };
             }])
-            .directive('hbPortlet', [function () {
+            .directive('hbPortlet', ['blockUI', 'UtilService', function (blockUI, UtilService) {
                 return {
                     restrict: 'EAC',
                     transclude: true,
                     scope: {
                         color: '@'
                     },
-                    template: '' +
-                    '<div block-ui="main">' +
-                    '   <div class="portlet box" ng-class="color" ng-transclude></div>' +
-                    '</div>'
+                    template: function () {
+                        var uuid = UtilService.guid();
+                        return '' +
+                            '<div block-ui="' + uuid + '">' +
+                            '   <div class="portlet box" ng-class="color" ng-transclude></div>' +
+                            '</div>';
+                    },
+                    controller: function ($scope, $element) {
+                        var blockInstance,
+                            isBlocking;
+                        this.startBlock = startBlock;
+                        this.stopBlock = stopBlock;
+
+                        function startBlock () {
+                            var blockId = $element.find('[block-ui]').attr('block-ui');
+                            blockInstance = blockUI.instances.get(blockId);
+                            blockInstance.start();
+                            isBlocking = true;
+                        }
+                        function stopBlock () {
+                            if (isBlocking) {
+                                $scope.$apply(function () {
+                                    blockInstance.stop();
+                                    isBlocking = false;
+                                });
+                            }
+                        }
+                    }
                 };
             }])
             .directive('hbPortletBody', [function () {
@@ -246,22 +270,21 @@ define(
                     }
                 };
             }])
-            .directive('hbPortletHeaderReload', ['blockUI', function (blockUI) {
+            .directive('hbPortletHeaderReload', [function () {
                 return {
                     restrict: 'EAC',
                     replace: true,
-                    require: '?^hbPortletHeader',
+                    require: '^hbPortlet',
                     template: '<a href="javascript:;" class="reload" ng-click="reload();" data-original-title="" title=""></a>',
-                    link: function ($scope, $element) {
-                        var $portletBody = $element.closest('.portlet').find('.portlet-body');
+                    link: function ($scope, $element, attrs, hbPortletCtrl) {
                         $scope.reload = reload;
 
                         function reload () {
-                            if (blockUI.isBlocking()) {
-                                blockUI.stop();
-                            } else {
-                                blockUI.start();
-                            }
+                            hbPortletCtrl.startBlock();
+
+                            setTimeout(function () {
+                                hbPortletCtrl.stopBlock();
+                            }, 1000);
                         }
                     }
                 };

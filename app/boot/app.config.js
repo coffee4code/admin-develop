@@ -13,7 +13,7 @@ define(
             'blockUI'
         ])
             .config(['$httpProvider', function ($httpProvider) {
-                $httpProvider.interceptors.push('timestampService');
+                $httpProvider.interceptors.push('TimestampService');
                 $httpProvider.interceptors.push('SessionService');
             }])
             .config(['$breadcrumbProvider', function ($breadcrumbProvider) {
@@ -22,7 +22,8 @@ define(
                     templateUrl: 'app/modules/db/template-breadcrumb.html'
                 });
             }])
-            .config(['blockUIConfig', function(blockUIConfig) {
+            .config(['blockUIConfig', function (blockUIConfig) {
+                blockUIConfig.delay = 0;
                 blockUIConfig.autoInjectBodyBlock = false;
                 blockUIConfig.template = '' +
                     '<div class="block-ui-overlay"></div>' +
@@ -33,8 +34,8 @@ define(
                     '           <div class="bounce2"></div>' +
                     '           <div class="bounce3"></div>' +
                     '       </div>' +
-                    '   </div>' ;
-                    '</div>' ;
+                    '   </div>' +
+                    '</div>';
             }])
         ;
     }
