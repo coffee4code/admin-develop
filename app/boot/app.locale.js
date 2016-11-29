@@ -96,9 +96,12 @@ define(
                     replace: true,
                     template: function () {
                         var lang = $rootScope.lang || '',
-                            template = '<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">';
-                        template += '<img alt="" src="' + LANGUAGE_CONFIG[lang].flag + '"><span class="langname">' + LANGUAGE_CONFIG[lang].display + '</span>';
-                        template += '<i class="fa fa-angle-down"></i></a>';
+                            template = '';
+                        template += '<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">';
+                        template += '   <img alt="" src="' + LANGUAGE_CONFIG[lang].flag + '">';
+                        template += '   <span class="langname">' + LANGUAGE_CONFIG[lang].display + '</span>';
+                        template += '   <i class="fa fa-angle-down"></i>';
+                        template += '</a>';
                         return template;
                     }
                 };
