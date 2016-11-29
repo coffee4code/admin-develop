@@ -94,7 +94,7 @@ require.config({
             //      'zh-cn',     // Simplified Chinese
             //      'zh-hk',     // HK Traditional Chinese
             // ]
-            locale: ''
+            locale: localStorage.getItem('locale') || ''
         }
     },
     callback: function () {

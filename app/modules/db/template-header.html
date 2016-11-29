@@ -19,6 +19,18 @@
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN LANGUAGE BAR -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li hb-drop-menu-toggler class="dropdown dropdown-extended dropdown-language">
+                    <hb-language-display></hb-language-display>
+                    <ul class="dropdown-menu dropdown-menu-default" data-toggle="dropdown-menu">
+                        <hb-language-toggler-helper></hb-language-toggler-helper>
+                        <hb-language-toggler toggle-lang=""></hb-language-toggler>
+                        <hb-language-toggler toggle-lang="zh-cn"></hb-language-toggler>
+                        <hb-language-toggler toggle-lang="zh-hk"></hb-language-toggler>
+                    </ul>
+                </li>
+                <!-- END LANGUAGE BAR -->
                 <!-- BEGIN NOTIFICATION DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li hb-drop-menu-toggler class="dropdown dropdown-extended dropdown-notification"
