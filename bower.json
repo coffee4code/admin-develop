@@ -39,6 +39,7 @@
     "angular-mocks": "^1.5.8",
     "angular-cookies": "~1.5.8",
     "angular-breadcrumb": "~0.5.0",
-    "angular-block-ui": "^0.2.2"
+    "angular-block-ui": "^0.2.2",
+    "ngSlimscroll": "*"
   }
 }

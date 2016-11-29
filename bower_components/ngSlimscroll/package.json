@@ -1,0 +1,42 @@
+{
+  "name": "ng-slimscroll",
+  "version": "1.0.1",
+  "description": "AngularJS slimscroll implementation ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkuri/ngSlimscroll.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "directive",
+    "slimscroll",
+    "scroller",
+    "horizontal",
+    "vertical",
+    "scroll"
+  ],
+  "author": "Jan Kuri <jkuri88@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkuri/ngSlimscroll/issues"
+  },
+  "homepage": "http://demo.jankuri.com/ngSlimscroll",
+  "dependencies": {
+    "bower": "^1.6.3"
+  },
+  "devDependencies": {
+    "del": "2.0.2",
+    "event-stream": "3.3.2",
+    "gulp": "3.9.0",
+    "requirejs": "2.1",
+    "run-sequence": "1.1.4",
+    "gulp-uglify": "1.5.1"
+  },
+  "engines": {
+    "node": "^0.12 || ^4.2"
+  }
+}

@@ -12,6 +12,7 @@ require.config({
 
         ngCookies: '../bower_components/angular-cookies/angular-cookies',
         ngBreadcrumb: '../bower_components/angular-breadcrumb/dist/angular-breadcrumb',
+        ngSlimScroll: '../bower_components/ngSlimscroll/src/js/ngSlimscroll',
         blockUI: '../bower_components/angular-block-ui/dist/angular-block-ui',
 
         decorator: '../app/boot/app.decorator',
@@ -50,6 +51,10 @@ require.config({
         ngBreadcrumb: {
             deps: ['angular', 'uiRouter'],
             exports: 'ngBreadcrumb'
+        },
+        ngSlimScroll: {
+            deps: ['angular'],
+            exports: 'ngSlimScroll'
         },
         blockUI: {
             deps: ['angular'],
